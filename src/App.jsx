@@ -11,46 +11,28 @@ function App() {
   return ( 
   <>
     
+    <Navbar />
+
     <Box
       sx={{
-        height: '100vh',
-        width: 'flex',
-        bgcolor: '#121212',
+        bgcolor: '#15142A',
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'flex-start',
+        // alignItems: 'center',
         
       }}
-    
-    ></Box>  
-      
-    <Box
-      sx={{
-        position: 'fixed',
-        width: 'flex',
-        display: 'flex',
-        width: '100%',
-        top: 0,
-
-      }}>
-
-      <Navbar />
-      
-    </Box> 
-
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/Library" element={<Library />} />
-     
-    </Routes>
 
      
-  </>
-  
-
-
     
+    >
+       <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Library" element={<Library />} /> 
+      </Routes>
+    </Box>  
+  </> 
   );
 }
 

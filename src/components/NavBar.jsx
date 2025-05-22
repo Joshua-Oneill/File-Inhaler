@@ -22,34 +22,28 @@ import {Route, Routes, Link } from "react-router-dom";
 function Navbar() {  
   return (
       <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{bgcolor: '#1e1e1e'}}>
-        <Toolbar>
-        <Box 
-          component="img"
-          src='../fileIcon.png'
-          alt="Logo"
-          sx={{
-              height: 40,
-              mr: 2
-          }}
-        />
-        <Box sx={{flexGrow: 1}}>
-          <Button color="primary" component={Link} to="/">Home</Button>
-          <Button color="primary" component={Link} to="./Library">Library</Button>
-          <Button color="primary" component={Link} to="/">Page 3</Button>
-        </Box>
+        <AppBar position="static" sx={{bgcolor: '#13131E'}}>
+          <Toolbar>
+            <Box 
+              component="img"
+              src='../fileIcon.png'
+              alt="Logo"
+              sx={{
+                  height: 40,
+                  mr: 2
+              }}
+            />
+            <Box sx={{flexGrow: 1}}>
+              <Button color="primary" component={Link} to="/">Home</Button>
+              <Button color="primary" component={Link} to="./Library">Library</Button>
+              <Button color="primary" component={Link} to="/">Page 3</Button>
+            </Box>
 
-        
-          
-        <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-
-      {/* <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Library" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-       </Routes> */}
+            
+              
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
     </Box>
   );
 }
