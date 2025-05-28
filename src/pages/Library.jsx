@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 
 import { searchPhotos, getPhotos } from '../services/api';
 
+import AddContent from '../components/addContent';
+import SearchBar from '../components/SearchBar';
+
 function Library() {
     
     const [searchQuery, setSearchQuery] = useState("")
@@ -11,10 +14,26 @@ function Library() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const handleFileUpload = (files) => {
+      const uploadedFiles = Array.from(files);
+
+      const newPhotos = uploadedFiles.map((file, index) => ({
+        id: `local-${Date.now()}-${index}`,
+        title: file.name,
+        imageUrl: URL.createObjectURL(file),
+
+      }));
+
+      setPhotos(prev => [...newPhotos, ...prev]);
+
+    };
+    
+    //generic loading of files behaviour - will load whatever api send (20 at this stage) onto the page when you land
     useEffect(() => {
+
       const loadPopularPhotos = async () => {
         try {
-          const popularPhotos = await getPhotos()
+          const popularPhotos = await getPhotos(5) //function from api.jsx which runs a api query to the photo website to load 20 random photos
           setPhotos(popularPhotos)
         } catch (error) {
           //console.log(err);
@@ -29,6 +48,7 @@ function Library() {
 
     }, [])
 
+    //handles the updating of photos when you search for a term - will send this search term to the api
     const searchHandler = async (e) => {
         e.preventDefault()
         if(!searchQuery.trim()) return
@@ -36,7 +56,7 @@ function Library() {
 
         setLoading(true)
         try{
-          const searchResults = await searchPhotos(searchQuery)
+          const searchResults = await searchPhotos(searchQuery) //loads a function from api.jsx that will passs the search term into the api query and returns the result
           console.log("Search results:", searchResults)
           setPhotos(searchResults)
           setError(null)
@@ -52,46 +72,25 @@ function Library() {
     };
 
     return (
-        <Container maxWidth={false} sx={{ px: 4 }}>
+      <Container maxWidth={false} sx={{ px: 4}}>
         
-        <Box
-          component="form"
-          onSubmit={searchHandler}
-          sx={{
-            display: "flex",
-            gap: 2,
-            mb: 4,
-            mt: 4,
-          }}
-        >
-          <TextField
-            
-            fullWidth
-            placeholder="hello search Dork"
-            variant="outlined"
-
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                color:'#f2f2f7',
-                backgroundColor: '#11111b'
-                },
-              "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#2e2e2e",
-                  borderWidth: "3px",
-              },
-            
-            }}
-
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            
+        <Box sx={{
+          flexGrow: 1,
+          display: 'flex',
+          flexDirection : 'row',
+          alignItems: 'center',
+          gap: 2
+        }}>
+          <AddContent
+            handleFileUpload={handleFileUpload}
           />
-          <Button type="submit" variant="contained">
-            Search
-          </Button>
+          <SearchBar
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            onSearch={searchHandler}
+          />
         </Box>
-  
-        {/* Photo Grid */}
+          
         <Grid container spacing={3}>
           {photos.map((photo) => (
               <Grid item xs={12} sm={6} md={4} key={photo.id}>
@@ -99,6 +98,7 @@ function Library() {
               </Grid>
             ))}
         </Grid>
+
       </Container>
     );
       

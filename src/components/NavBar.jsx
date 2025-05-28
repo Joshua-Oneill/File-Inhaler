@@ -41,7 +41,7 @@ function Navbar() {
 
             
               
-            <Button color="inherit">Login</Button>
+            <Button color="inherit" component={Link} to="./LoginPage">Login</Button>
           </Toolbar>
         </AppBar>
     </Box>

@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from "./pages/Home";
 import Library from "./pages/Library";
+import LoginPage from "./pages/LoginPage";
 
 import Navbar from './components/NavBar';
 
@@ -30,6 +31,7 @@ function App() {
        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Library" element={<Library />} /> 
+        <Route path="/LoginPage" element={<LoginPage />} /> 
       </Routes>
     </Box>  
   </> 

@@ -19,7 +19,7 @@ function PhotoCard({photoData}) {
                 component="img"
                 height="350"
                
-                image={photoData.src.medium}
+                image={photoData.imageUrl || photoData.src.medium}
                 alt={photoData.alt || 'Pexels photo'}
                 sx={{
                     objectFit: 'cover'
