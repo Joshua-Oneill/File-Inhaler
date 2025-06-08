@@ -4,7 +4,9 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from "./pages/Home";
 import Library from "./pages/Library";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/loginPage";
+import AssetRegister from "./pages/AssetRegister";
+import Dashboard from "./pages/Dashboard";
 
 import Navbar from './components/NavBar';
 
@@ -31,7 +33,9 @@ function App() {
        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Library" element={<Library />} /> 
-        <Route path="/LoginPage" element={<LoginPage />} /> 
+        <Route path="/LoginPage" element={<LoginPage />} />
+        <Route path="/AssetRegister" element={<AssetRegister />} /> 
+        <Route path="/Dashboard" element={<Dashboard />} /> 
       </Routes>
     </Box>  
   </> 

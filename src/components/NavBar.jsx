@@ -1,67 +1,75 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
 
-import {Route, Routes, Link } from "react-router-dom";
-
+import { Route, Routes, Link } from "react-router-dom";
 
 // const pages = ['Home', 'Library', 'Page 3', 'Page 4']
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function Navbar() {  
+function Navbar() {
   return (
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" sx={{bgcolor: '#13131E'}}>
-          <Toolbar>
-            <Box 
-              component="img"
-              src='../fileIcon.png'
-              alt="Logo"
-              sx={{
-                  height: 40,
-                  mr: 2
-              }}
-            />
-            <Box sx={{flexGrow: 1}}>
-              <Button color="primary" component={Link} to="/">Home</Button>
-              <Button color="primary" component={Link} to="./Library">Library</Button>
-              <Button color="primary" component={Link} to="/">Page 3</Button>
-            </Box>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" sx={{ bgcolor: "#13131E" }}>
+        <Toolbar>
+          <Box
+            component="img"
+            src="../fileIcon.png"
+            alt="Logo"
+            sx={{
+              height: 40,
+              mr: 2,
+            }}
+          />
+          <Box sx={{ flexGrow: 1 }}>
+            <Button color="primary" component={Link} to="/">
+              Home
+            </Button>
+            <Button color="primary" component={Link} to="./Library">
+              Library
+            </Button>
+            <Button color="primary" component={Link} to="./AssetRegister">
+              Asset Register
+            </Button>
+            <Button color="primary" component={Link} to="./Dashboard">
+              Dashboard
+            </Button>
+          </Box>
 
-            
-              
-            <Button color="inherit" component={Link} to="./LoginPage">Login</Button>
-          </Toolbar>
-        </AppBar>
+          <Button color="inherit" component={Link} to="./LoginPage">
+            Login
+          </Button>
+        </Toolbar>
+      </AppBar>
     </Box>
   );
 }
-    
-    // <nav className="navbar">
-    //     <div className="navbar-brand">
-    //         <Link to="/">File Inhaler</Link>
-    //     </div>
-    //     <div className="navbar-links">
-    //         <Link to="/" className="nav-link">Home</Link>
-    //         <Link to="/Library" className="nav-link">Library</Link>
-    //     </div>
-    // </nav>
-export default Navbar
 
+// <nav className="navbar">
+//     <div className="navbar-brand">
+//         <Link to="/">File Inhaler</Link>
+//     </div>
+//     <div className="navbar-links">
+//         <Link to="/" className="nav-link">Home</Link>
+//         <Link to="/Library" className="nav-link">Library</Link>
+//     </div>
+// </nav>
+export default Navbar;
 
 //<Container maxWidth="xl">
-{/* <Toolbar disableGutters>
+{
+  /* <Toolbar disableGutters>
            
 <Box 
     component="img"
@@ -167,4 +175,5 @@ export default Navbar
   </Menu>
 </Box>
 </Toolbar>
-</Container> */}
+</Container> */
+}
